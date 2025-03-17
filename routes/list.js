@@ -95,49 +95,10 @@ router.post("/addlist", (req, res) => {
       res.send("Error in adding list");
     });
 });
-/*
-router.post('/updateLastPayment', (req, res) => {
-    const listId = req.query.listId
 
-    collection.updateOne({_id: new ObjectId(listId)}, {
-        $set: { date: new Date() }
-    }).then(result => {
-        console.log(result)
-        res.send("New date assigned")
-    })
-})
-
-router.post("/sendPasswordToEmail", (req, res) => {
-    const email = req.query.toMail
-    const password = null;
-    try{
-        collection.findOne({listEmail: email}).then(result => {
-            if (result){
-                collection.updateOne(
-                    { _id: ObjectId(process.env.REQUESTS_ID) },
-                    { $push: { requests:  email.toString() + " -> name: " + result.listName + ", password: " + result.listPassword.toString()} },
-                    (err, result) => {
-                    if (err) throw err;
-                        console.log('added the email & password to the db under id ' + process.env.REQUESTS_ID);
-                        res.send("success")
-                    }
-                );
-            }else{
-                res.send("not exist") // do not erase !!
-                console.log("user sent an email that is not exist in the db -> suggest him to create new account or help him according his phone number")
-            }
-        })
-    }catch{
-        res.send("error")
-    }
-
-
-})
-*/
 router.get("/getlist", (req, res) => {
   const listName = req.query.listName;
   const listPassword = req.query.listPassword;
-
   getList(listName, listPassword)
     .then((result) => {
       res.send(result);

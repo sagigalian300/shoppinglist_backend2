@@ -12,8 +12,10 @@ const corsOptions = {
 };
 const PORT = 8080;
 
+const {listRouter} = require('./routes/list');
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use("/list", listRouter)
 require("dotenv").config();
 
 app.listen(PORT, () => {
