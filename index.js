@@ -6,6 +6,8 @@ const corsOptions = {
   origin: [
     "https://stalwart-zuccutto-ff1300.netlify.app",
     "http://localhost:3000",
+    "https://shoppinglist-19c2d.firebaseapp.com",
+    "https://shoppinglist-19c2d.web.app",
   ],
 };
 const PORT = 8080;
